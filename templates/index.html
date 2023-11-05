@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Spam Detector</title>
+</head>
+<body>
+  <h1>Spam Detector</h1>
+  <form method="POST" action="/predict">
+    <label for="text">Enter text:</label><br>
+    <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
+    <button type="submit">Predict</button>
+  </form>
+  {% if prediction == 1 %}
+    <p><strong>{{ original_text }}</strong> is <span style="color:red;">spam</span>.</p>
+  {% elif prediction == 0 %}
+    <p><strong>{{ original_text }}</strong> is not spam.</p>
+  {% endif %}
+</body>
+</html>
+
+<form method="POST" action="/feedback">
+  <label for="feedback">Provide feedback:</label><br>
+  <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br><br>
+  <button type="submit">Submit Feedback</button>
+</form>
+
+
