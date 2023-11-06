@@ -55,16 +55,33 @@ dedup([1,2,3,3,4,5,5,6])
 
 # count words in a sentence
 def cnt_wrd(str):
-    lstr = str.split()
-    ds = {}
-    for i in lstr:
-        if i in ds:
-            ds[i] += 1
+    d = {}
+    s = str.split()
+    for i in s:
+        if i in d.keys():
+            d[i] += 1
         else:
-            ds[i] = 1
-    return(ds)
+            d[i] = 1
+    return(d)
 
-cnt_wrd('mary had a little lamb had a a had ')
+cnt_wrd('mary had a little lamb had a a had mary lamb a')
+
+kl = []
+vl = []
+for k,v in dt.items():
+    kl.append(k)
+    vl.append(v)
+
+
+tp = ()
+for i in zip(kl,vl):
+    tp.add(i)
+
+
+
+
+
+
 
 # fibonacci sequence upto  certain number 'n'
 # using while loops:
@@ -345,5 +362,43 @@ def two_sum(input: list[int], target: int) -> list[int]:
     return [-1, -1]
 
 two_sum([1,4,6,10],2)
+
+
+# -- get the smallest multiple - the number must be smallest and must be fully divisible by all
+# numbers upto the target
+
+def factorial(n):
+    f = 1
+    for i in range(2,n+1,1):
+        f = f*i
+    return f
+
+def smallest_multiple(target):
+    l = []
+    f = factorial(target)
+    for i in range(target + 1 ,f ,1):
+        pd = True
+        for k in range(1,target+1):
+            if (i % k != 0):
+                pd = False
+                break
+        if (pd == True):
+            print(i)
+
+smallest_multiple(5)
+
+
+# enumerate gives index and the iterable object
+fruits = ["apple", "banana", "cherry", "date"]
+for i , f in enumerate(fruits):
+    print(i,f)
+
+fts = ('MA', 'CA', 'TX', 'NC')
+for i,t in enumerate(fts):
+    print(i,t)
+
+
+
+
 
 
