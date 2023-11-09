@@ -398,6 +398,53 @@ for i,t in enumerate(fts):
     print(i,t)
 
 
+# -- three sum code:
+# given an array calculate the triplets that equal to the target sum
+
+
+
+
+def threesum(arr, tsum):
+
+    arr.sort()
+    res = []
+
+    for i,x in enumerate(arr):
+        if i > 0 and x == arr[i-1]:
+            continue
+        l,r = i+1, len(arr) -1
+        # print(i, x, l,r)
+        while l < r:
+            ts = arr[i] + arr[l] + arr[r]
+            if ts < tsum:
+                l += 1
+            elif ts > tsum:
+                r -= 1
+            else:
+                res.append([arr[i],arr[l],arr[r]])
+    print(res)
+    return res
+
+# Example usage
+nums = [-1, 0, 1, 2, -1, -4]
+target = 0
+print(threesum(nums, target))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
