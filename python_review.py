@@ -416,12 +416,15 @@ def threesum(arr, tsum):
         # print(i, x, l,r)
         while l < r:
             ts = arr[i] + arr[l] + arr[r]
-            if ts < tsum:
+            if ts < tsum and l < r:
                 l += 1
             elif ts > tsum:
                 r -= 1
             else:
                 res.append([arr[i],arr[l],arr[r]])
+                l +=1
+                while arr[l] == arr[l-1] and l < r:
+                    l += 1
     print(res)
     return res
 
@@ -429,6 +432,10 @@ def threesum(arr, tsum):
 nums = [-1, 0, 1, 2, -1, -4]
 target = 0
 print(threesum(nums, target))
+
+
+
+
 
 
 
